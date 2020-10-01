@@ -3,21 +3,6 @@
 #include <map>
 using namespace std;
 
-int bruteForceSubString(string father, string son){
-    int fatherLen = father.length();
-    int sonLen = son.length();
-
-    //comparación de la cadena padre y la cadena hijo, caracter por caracter
-    for(int i = 0;i<(fatherLen-sonLen+1);i++){
-        for(int j = 0;j<sonLen;j++){
-            if(father[i+j] != son[j]) break;
-            if(j == sonLen-1) return i;
-        }
-    }
-    //no encontrado
-    return -1;
-}
-
 int boyerMooreSubString(string father, string son){
     int fatherLen = father.length();
     int sonLen = son.length();
@@ -54,45 +39,6 @@ int boyerMooreSubString(string father, string son){
         if(badMatch[father[fatherIndex]] != 0) fatherIndex += badMatch[father[fatherIndex]];
         //no existe el caracter, aumentamos el tamaño de la subcadena
         else fatherIndex += sonLen;
-    }
-
-    return -1;
-}
-
-int KMPSubString(string father, string pattern) {
-
-    int fatherLen = father.length();
-    int patternLen = pattern.length();
-    //arreglo de valores de movimiento
-    int lps[patternLen];
-
-    //la primera letra del patron no cuenta como patron, por ende sera siempre 0
-    lps[0] = 0;
-    //i: posicion del patron, k: valor que se le asignara
-    int i = 1, k = 0;
-    
-    //verifica si hay o no patrones y asigna su valor correspondiente
-    while(i<patternLen){
-        if(pattern[i] == pattern[k]) lps[i++] = ++k;
-        else{
-            if(k) k = lps[k-1];
-            else lps[i++] = k;
-        }
-    }
-
-    //i: posicion en cadena, k: posición en patron
-    i = 0, k = 0;
-    //comparación de cadena y patron
-    while(i<fatherLen){
-        //los caracteres concuerdan
-        if(father[i] == pattern[k]) i++,k++;
-        //los caracteres no concuerdan
-        else{
-            if(k) k = lps[k - 1];
-            else i++;
-        }
-        //se encontro el patron
-        if(k == patternLen) return i-k;
     }
 
     return -1;
