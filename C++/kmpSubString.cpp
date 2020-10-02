@@ -1,8 +1,7 @@
 //implemented by denso -- 2020
 #include <string>
-using namespace std;
 
-int kmpSubString(string father, string pattern) {
+int kmpSubString(std::string father, std::string pattern) {
 
     int fatherLen = father.length();
     int patternLen = pattern.length();
