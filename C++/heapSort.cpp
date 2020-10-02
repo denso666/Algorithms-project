@@ -32,7 +32,7 @@ void heapSort(int *a, int size){
     //creación de max-heap {montón}
     for (int i = size/2-1; i>=0;i--) heapify(a, size, i); 
   
-    // One by one extract an element from heap 
+    // extraccion de elementos del monton
     for(int i=size-1; i>0; i--){ 
         //cambiamos la raíz con el actual en el arreglo
         swap(&a[0], &a[i]); 

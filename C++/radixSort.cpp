@@ -25,7 +25,7 @@ void countSort(int *a, int size, int exp){
         count[(a[i]/exp) % 10]--;
     }
     
-    //asignación de valores correctos en arreglo padre
+    //asignación de valores ordenados en arreglo padre
     for (i = 0; i < size; i++) a[i] = ordered[i];
 }
 
