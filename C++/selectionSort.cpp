@@ -7,7 +7,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-//nota: en la primera llamada size es el tamaño del arrelo menos 1
+//nota: en la primera llamada size es el tamaño del arrelo
 void selectionSort(int *a, int size)
 {
     //indice temporal para intercambios posteriores

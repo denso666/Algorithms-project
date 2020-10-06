@@ -1,6 +1,6 @@
 //implemented by denso
 
-//nota: en la primera llamada size es el tamaño del arrelo menos 1
+//nota: en la primera llamada size es el tamaño del arrelo
 void insertionSort(int *a, int size)
 {
     //j: indice anterior para el cambio, key: valor que esta ordenandose
